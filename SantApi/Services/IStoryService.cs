@@ -4,6 +4,6 @@ namespace SantApi.Services
 {
     public interface IStoryService
     {
-        Task<List<Story>> GetBestStoriesAsync(int n);
+        Task<List<StoryResult>> GetBestStoriesAsync(int n);
     }
 }

@@ -2,24 +2,27 @@
 
 namespace SantApi.Models
 {
-    public class Story
+    public class StoryResult
     {
         [JsonPropertyName("title")]
         public string Title { get; set; }
 
-        [JsonPropertyName("url")]
+        [JsonPropertyName("uri")]
         public string Uri { get; set; }
 
-        [JsonPropertyName("by")]
+        [JsonPropertyName("postedBy")]
         public string PostedBy { get; set; }
 
-        [JsonPropertyName("time")]
+        [JsonIgnore]
         public long UnixTime { get; set; }
+
+        [JsonPropertyName("time")]
+        public DateTime Time => DateTimeOffset.FromUnixTimeSeconds(UnixTime).UtcDateTime;
 
         [JsonPropertyName("score")]
         public int Score { get; set; }
 
-        [JsonPropertyName("descendants")]
+        [JsonPropertyName("commentCount")]
         public int CommentCount { get; set; }
     }
 }

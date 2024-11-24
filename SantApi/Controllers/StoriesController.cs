@@ -27,7 +27,7 @@ public class StoriesController : ControllerBase
     /// <response code="400">If the parameter `n` is less than 1 or bigger than max value.</response>
     /// <response code="500">If there was an internal server error.</response>
     [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Story>))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<StoryResult>))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> GetBestStories([FromQuery] int n = 10)

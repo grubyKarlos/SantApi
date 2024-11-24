@@ -11,7 +11,7 @@ namespace SantApi.Services
             _cachedHackerNewsService = cachedHackerNewsService;
         }
 
-        public async Task<List<Story>> GetBestStoriesAsync(int n)
+        public async Task<List<StoryResult>> GetBestStoriesAsync(int n)
         {
             var ids = await _cachedHackerNewsService.GetBestStoryIdsCachedAsync();
 
@@ -21,6 +21,15 @@ namespace SantApi.Services
             var sortedStories = stories
                 .Where(s => s != null)
                 .OrderByDescending(s => s!.Score)
+                .Select(apiStory => new StoryResult
+                {
+                    Title = apiStory.Title,
+                    Uri = apiStory.Uri,
+                    PostedBy = apiStory.PostedBy,
+                    UnixTime = apiStory.UnixTime,
+                    Score = apiStory.Score,
+                    CommentCount = apiStory.CommentCount
+                })
                 .ToList();
 
             return sortedStories;

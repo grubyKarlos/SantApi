@@ -31,10 +31,10 @@ namespace SantApi.Tests.Controllers
         {
             // Arrange
             var n = 5;
-            var expectedStories = new List<Story>
+            var expectedStories = new List<StoryResult>
             {
-                new Story { Title = "Story 1", Score = 100 },
-                new Story { Title = "Story 2", Score = 80 }
+                new StoryResult { Title = "Story 1", Score = 100 },
+                new StoryResult { Title = "Story 2", Score = 80 }
             };
 
             _storyServiceMock
@@ -48,7 +48,7 @@ namespace SantApi.Tests.Controllers
             var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
 
-            var returnedStories = Assert.IsType<List<Story>>(okResult.Value);
+            var returnedStories = Assert.IsType<List<StoryResult>>(okResult.Value);
             Assert.Equal(expectedStories.Count, returnedStories.Count);
             Assert.Equal(expectedStories[0].Title, returnedStories[0].Title);
         }
@@ -87,10 +87,10 @@ namespace SantApi.Tests.Controllers
         {
             // Arrange
             int validN = 150;
-            var expectedStories = new List<Story>
+            var expectedStories = new List<StoryResult>
             {
-                new Story { Title = "Story 1", Score = 100 },
-                new Story { Title = "Story 2", Score = 80 }
+                new StoryResult { Title = "Story 1", Score = 100 },
+                new StoryResult { Title = "Story 2", Score = 80 }
             };
 
             _storyServiceMock
@@ -104,7 +104,7 @@ namespace SantApi.Tests.Controllers
             var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
 
-            var returnedStories = Assert.IsType<List<Story>>(okResult.Value);
+            var returnedStories = Assert.IsType<List<StoryResult>>(okResult.Value);
             Assert.Equal(expectedStories.Count, returnedStories.Count);
             Assert.Equal(expectedStories[0].Title, returnedStories[0].Title);
         }
