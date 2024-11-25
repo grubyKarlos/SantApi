@@ -27,6 +27,7 @@ To run the application locally, follow these steps:
 ## Changes and Enhancements ## 
 - Expand existing unit and integration tests to cover more scenarios, such as invalid requests, no data response from the external API, or issues with the cache.
 - Add logs
+- Add AutoMapper
 
 ## Technologies Used ##
 - ASP.NET Core 8.0 – Framework for building web applications.
